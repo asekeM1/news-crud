@@ -9,8 +9,13 @@
   <body>
     {% include 'navbar.html' %}
     <div class="container mt-3">
-      {% block content%}
+      {% if messages %}
+        {% for message in messages %}
+         {{ message }}
+        {% endfor %}
+      {% endif %}
 
+      {% block content%}
       {% endblock %}
     </div>
     
