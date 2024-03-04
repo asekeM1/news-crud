@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Пероснальная информация</h1><br>
+<div class="card text-center">
+    <div class="card-header">
+      {{ personal_data.last_name }} {{ personal_data.first_name }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ personal_data.email }}</h5>
+      <p class="card-text">{{ personal_data.phone }}</p>
+      <p class="card-text">{{ personal_data.state }}, {{ personal_data.city }} {{ personal_data.zipcode }}</p>
+      <a href="{% url 'home' %}" class="btn btn-primary">Назад</a>
+      <a href="{% url 'update_record' personal_data.id %}" class="btn btn-warning">Обновить информацию</a>
+      <a href="{% url 'delete_record' personal_data.id %}" class="btn btn-danger">Удалить пользователя</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+      {{ personal_data.created_at }}
+    </div>
+  </div>
+
+{% endblock content %}
+
